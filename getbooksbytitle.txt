@@ -1,0 +1,2 @@
+ curl.exe localhost:5000/title/"Fairy%20tales"
+{"books":[{"author":"Hans Christian Andersen","title":"Fairy tales","reviews":{}}]}
