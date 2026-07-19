@@ -1,0 +1,9 @@
+curl.exe -X PUT http://localhost:5000/customer/auth/review/1
+
+JSON----
+{"review":"good book"}
+
+RESPONSE----
+{
+  "message": "Review added successfully"
+}
