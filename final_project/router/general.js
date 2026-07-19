@@ -93,15 +93,32 @@ public_users.get('/author/:author', (req, res) => {
 });
 
 // Get all books based on title
-public_users.get('/title/:title',function (req, res) {
-  let title = req.params.title;
-  let booksByTitle = [];
-  for (let isbn in books) {
-    if (books[isbn].title === title) {
-      booksByTitle.push(books[isbn]);
+// public_users.get('/title/:title',function (req, res) {
+//   let title = req.params.title;
+//   let booksByTitle = [];
+//   for (let isbn in books) {
+//     if (books[isbn].title === title) {
+//       booksByTitle.push(books[isbn]);
+//     }
+//   }
+//   return res.status(200).json({books: booksByTitle});
+// });
+//get book details based on title using promises
+public_users.get('/title/:title', (req, res) => {
+  const title = req.params.title;
+  setTimeout(() => {
+    let booksByTitle = [];
+    for (let isbn in books) {
+      if (books[isbn].title === title) {
+        booksByTitle.push(books[isbn]);
+      }
     }
-  }
-  return res.status(200).json({books: booksByTitle});
+    if (booksByTitle.length > 0) {
+      res.status(200).json({books: booksByTitle});
+    } else {
+      res.status(404).json({message: "No books found for the given title"});
+    }
+  }, 1000);
 });
 
 //  Get book review
