@@ -1,0 +1,7 @@
+curl.exe -X POST http://localhost:5000/customer/login
+JSON content----
+{"username":"user","password":"123"}
+RESPONSE----
+{
+  "message": "User successfully logged in"
+}
