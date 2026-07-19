@@ -24,6 +24,23 @@ public_users.get('/',function (req, res) {
   //Write your code here
   return res.status(200).json(books);
 });
+//get books details using promises
+public_users.get('/booksusingpromises', (req, res) => {
+  // Simulate an API call with a delay
+  setTimeout(() => {
+    res.status(200).json(books);
+  }, 1000);
+});
+//get books details using async-await
+// public_users.get('/booksusingasyncawait', async (req, res) => {
+//   try {
+//     setTimeout(() => {
+//       res.status(200).json(books);
+//     }, 1000);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+// });
 
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn',function (req, res) {
